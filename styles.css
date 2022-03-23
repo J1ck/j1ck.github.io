@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+#head{
+    padding: 10px 0 50px 0;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: max(3.5vh, 2vw);
+    width: 100%;
+    position: relative;
+}
+#head > a{
+    padding-left: 10px;
+    text-shadow: 5px 3px 3px grey;
+}
+#head > figcaption{
+    font-weight: 600;
+    font-size: max(1.5vh, 1vw);
+    padding-left: 30px;
+    text-shadow: 5px 3px 3px grey;
+}
+
+#middle{
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: fit-content;
+    top: 10px;
+    max-width: 60%;
+}
+#middle > a{
+    transition: ease-in-out 300ms;
+    user-select: none;
+    padding: 0 5px 0 5px;
+    color: black;
+    text-shadow: 2px 1px 3px grey;
+}
+#middle > a:hover{
+    text-shadow: 5px 3px 3px grey;
+}
+
+#content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: max(3.5vh, 2vw);
+    text-align: center;
+}
+
+
+.project_box{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 20vw;
+    height: 20vw;
+    margin: 1vw;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 500px;
+    max-height: 500px;
+    box-shadow: 10px 10px 20px grey;
+    transition: ease-in-out 500ms;
+}
+.project_box > a{
+    width: 100%;
+    height: 100%;
+    background: none;
+    position: absolute;
+    left: 0;
+}
+.project_box > div{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: max(3.5vh, 2vw);
+    color: white;
+    background-color: black;
+    text-align: left;
+    bottom: 0;
+    left: 0;
+    padding: 2px 0px 5% 0px;
+    opacity: 0;
+    transition: ease-in-out 300ms;
+    pointer-events: none;
+    width: 100%;
+    text-align: center;
+}
+.project_box:hover > div, .project_box:hover > img{
+    opacity: 1;
+    filter: grayscale(0);
+}
+.project_box > img{
+    width: 100%;
+    height: fit-content;
+    transition: ease-in-out 300ms;
+    pointer-events: none;
+}
+#langs{
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    left: 5px;
+    top: 5px;
+    width: 10%;
+    height: 10%;
+}
+#langs > img{
+    padding-right: 5px;
+}
