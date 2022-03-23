@@ -6,30 +6,30 @@ let caretT = 0;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function enter(v, l){
-    inside = true;
-    v.innerHTML = "";
-    for(let x = 0; x <= l.length; x++){
-        if(!inside) return;
-        v.innerHTML = l.slice(0, x) + "|";
-        await sleep(50);
-    }
-}
-async function leave(v, l){
-    inside = false;
-    for(let x = v.innerHTML.length; x >= 0; x--){
-        if(inside) return;
-        v.innerHTML = l.slice(0, x) + "|";
-        await sleep(10);
-    }
-}
-
 let elements = document.body.getElementsByClassName("pbText");
 for(let i = 0; i < elements.length; i++){
     let v = elements[i];
     let l = v.innerHTML;
 
     let inside = false;
+
+    async function enter(v, l){
+        inside = true;
+        v.innerHTML = "";
+        for(let x = 0; x <= l.length; x++){
+            if(!inside) return;
+            v.innerHTML = l.slice(0, x) + "|";
+            await sleep(50);
+        }
+    }
+    async function leave(v, l){
+        inside = false;
+        for(let x = v.innerHTML.length; x >= 0; x--){
+            if(inside) return;
+            v.innerHTML = l.slice(0, x) + "|";
+            await sleep(10);
+        }
+    }
 
     v.parentElement.addEventListener("mouseenter", () => { enter(v, l) });
     v.parentElement.addEventListener("mouseleave", () => { leave(v, l) });

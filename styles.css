@@ -7,20 +7,19 @@
     font-weight: 600;
     font-size: max(3.5vh, 2vw);
     width: 100%;
-    position: relative;
+    text-align: center;
 }
-#head > a{
+/* #head > a{
     padding-left: 10px;
     text-shadow: 5px 3px 3px grey;
-}
+} */
 #head > figcaption{
     font-weight: 600;
     font-size: max(1.5vh, 1vw);
-    padding-left: 30px;
-    text-shadow: 5px 3px 3px grey;
+    /* padding-left: 30px; */
 }
 
-#middle{
+/* #middle{
     position: absolute;
     text-align: center;
     align-items: center;
@@ -39,6 +38,24 @@
 }
 #middle > a:hover{
     text-shadow: 5px 3px 3px grey;
+} */
+#right{
+    position: absolute;
+    width: 20%;
+    top: min(-3.5vh, -2vw);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+#right > a{
+    width: max(3.5vh, 2vw);
+    padding: 0 0 0 10px;
+}
+#right > a > img{
+    width: max(3.5vh, 2vw);
+    height: fit-content;
+    filter: brightness(0);
 }
 
 #content{
@@ -100,7 +117,8 @@
 }
 .project_box > img{
     width: 100%;
-    height: fit-content;
+    height: 100%;
+    object-fit: cover;
     transition: ease-in-out 300ms;
     pointer-events: none;
 }
