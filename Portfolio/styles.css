@@ -15,14 +15,13 @@ body {
     padding: 0;
     margin: 0;
     background-color: #3F2C3E;
-    scroll-behavior: smooth;
     display: flex;
     flex-direction: row;
     justify-content: center;
 
-    background-image: url(icons/code3.svg);
-    background-size: 50px;
-    background-clip: padding-box;
+    /* background-image: url(icons/code3.svg); */
+    /* background-size: 250px; */
+    /* background-clip: padding-box; */
 
     /* align-items: center; */
     /* justify-content: center; */
@@ -49,7 +48,7 @@ body {
         border-radius: var(--corner-bevel);
         /* justify-self: center; */
         justify-content: center;
-        gap: 15%;
+        gap: 12%;
 
         & > a {
             width: 30px;
@@ -150,7 +149,7 @@ body {
     /* margin-left: auto; */
     /* margin-right: auto; */
 
-    transition: margin-left 1s ease-in-out;
+    transition: margin 1s ease-in-out;
 
     /* & img {
         filter: saturate(0);
@@ -158,13 +157,16 @@ body {
 }
 
 #description {
-    width: 0;
+    width: 0ch;
+    min-width: 0px;
     height: fit-content;
     /* position: relative; */
     /* margin-right: auto; */
     /* margin-left: 0; */
     top: 0;
     position: sticky;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
 
     & > .inner-body {
         border: none;

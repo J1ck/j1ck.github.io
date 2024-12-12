@@ -156,15 +156,16 @@ const IdToHTML = {
 
     <h3>Developed Key Features:</h3>
     <ul>
-        <li>anti-cheat</li>
-        <li>disaster system</li>
-        <li>greedy meshed voxel destruction</li>
+        <li>Designed and Developed a Sophisticated Anti-Cheat System to Stop Hackers from Teleporting, Flying, No-Clipping, Modifying Walk Speed or Jump Height, and Infinite Jumping</li>
+        <li>Created a Framework to Seamlessly Handle Cross Client and Server Interactions for Custom Weapons</li>
+        <li>Researched and Built a Complex Voxel Destruction System Using a Greedy Meshing Algorithm to Maximise Performance and Keep Part Counts Low</li>
         <li></li>
     </ul>
 
     <h3>Behind the Scenes:</h3>
     <ul>
-        
+        <li>Partnered with an investment company to fund the design, development, and marketing of this project</li>
+        <li></li>
     </ul>
 
     <div class="break"></div>
@@ -177,7 +178,7 @@ const IdToHTML = {
     <div class="square-grid">
         <img src="https://tr.rbxcdn.com/180DAY-0dcf396a5963feb93a845a14cd1e57cc/768/432/Image/Webp/noFilter">
     </div>
-    ` // 
+    `
 };
 
 const IdToGameLink = {
@@ -198,7 +199,7 @@ function OpenDescription(Id) {
 
     document.querySelector("#game-link").setAttribute("href", `https://roblox.com/games/${IdToGameLink[Id]}`);
 
-    Description.removeAttribute("hidden");
+    // Description.removeAttribute("hidden");
     Description.setAttribute("style", `
         width: 70ch;
     `);
@@ -209,15 +210,22 @@ function OpenDescription(Id) {
     Body.innerHTML = IdToHTML[Id].trim();
 
     Description.appendChild(Body);
+
+    window.scrollTo({
+        top: 0,
+        // left: 0,
+        behaviour: "smooth"
+    });
 }
 
 function CloseDescription() {
-    Description.setAttribute("hidden", true);
+    // Description.setAttribute("hidden", true);
     Description.setAttribute("style", `
         width: 0ch;
+        padding: 0
     `);
 
-    document.querySelector("#description-temp")?.remove();
+    // document.querySelector("#description-temp")?.remove();
 
     // document.querySelector("#main")?.setAttribute("style", "margin-right: auto;");
 }
