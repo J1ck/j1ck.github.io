@@ -159,13 +159,14 @@ const IdToHTML = {
         <li>Designed and Developed a Sophisticated Anti-Cheat System to Stop Hackers from Teleporting, Flying, No-Clipping, Modifying Walk Speed or Jump Height, and Infinite Jumping</li>
         <li>Created a Framework to Seamlessly Handle Cross Client and Server Interactions for Custom Weapons</li>
         <li>Researched and Built a Complex Voxel Destruction System Using a Greedy Meshing Algorithm to Maximise Performance and Keep Part Counts Low</li>
-        <li></li>
+        <li>Implemented Quests, Accessories, Round States, ... think of more</li>
     </ul>
 
     <h3>Behind the Scenes:</h3>
     <ul>
         <li>Partnered with an investment company to fund the design, development, and marketing of this project</li>
-        <li></li>
+        <li>Harnessed the Micro-Profiler to analyze frame times, then efficiently pinpoint and optimize bottlenecks in the codebase</li>
+        <li>Utilized Kanban boards through Trello to manage and track milestones from the investment company</li>
     </ul>
 
     <div class="break"></div>
@@ -192,7 +193,23 @@ const IdToGameLink = {
 
 const Description = document.querySelector("#description");
 
+let IsDescriptionOpen = false;
+
 function OpenDescription(Id) {
+    const WasDescriptionOpen = IsDescriptionOpen;
+
+    CloseDescription();
+
+    if (WasDescriptionOpen === false) {
+        OpenDescriptionInternal(Id)
+    } else {
+        setTimeout(OpenDescriptionInternal, 150, Id);
+    }
+}
+
+function OpenDescriptionInternal(Id) {
+    IsDescriptionOpen = true;
+
     document.querySelector("#description-temp")?.remove();
 
     // document.querySelector("#main")?.removeAttribute("style");
@@ -200,8 +217,10 @@ function OpenDescription(Id) {
     document.querySelector("#game-link").setAttribute("href", `https://roblox.com/games/${IdToGameLink[Id]}`);
 
     // Description.removeAttribute("hidden");
+
     Description.setAttribute("style", `
         width: 70ch;
+        min-height: ${document.body.clientHeight}px;
     `);
 
     const Body = document.createElement("div");
@@ -219,10 +238,13 @@ function OpenDescription(Id) {
 }
 
 function CloseDescription() {
+    IsDescriptionOpen = false;
+
     // Description.setAttribute("hidden", true);
     Description.setAttribute("style", `
-        width: 0ch;
-        padding: 0
+        width: 0;
+        padding: 0;
+        background-color: rgba(1, 1, 1, 0);
     `);
 
     // document.querySelector("#description-temp")?.remove();

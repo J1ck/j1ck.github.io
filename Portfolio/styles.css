@@ -6,8 +6,11 @@
     --accent: #F595A4;
     --corner-bevel: 0px;
     --spacing: 2.5ch;
+
+    --exp: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* TODO: add responsive layout for mobile using media screen or minmax */
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
@@ -29,7 +32,7 @@ body {
 
 .inner-body {
     max-width: 70ch;
-    min-width: 70ch;
+    /* min-width: 100px; */
     /* background-color: #ffffff04; */
     /* margin-left: auto; */
     /* margin-right: auto; */
@@ -48,25 +51,31 @@ body {
         border-radius: var(--corner-bevel);
         /* justify-self: center; */
         justify-content: center;
-        gap: 12%;
+        gap: 9%;
 
         & > a {
-            width: 30px;
+            height: 32px;
+            aspect-ratio: 1/1;
             user-select: none;
             cursor: pointer;
-            margin-right: 0.75ch;
-            margin-left: 0.75ch;
+            /* margin-right: 2%; */
+            /* margin-left: 15%; */
+            transition: transform 0.35s var(--exp);
 
             & > img {
                 width: 100%;
                 height: 100%;
             }
         }
+
+        & > a:hover {
+            transform: rotate(10deg) scale(120%);
+        }
     }
 }
 
 .break {
-    width: 70ch;
+    width: 100%;
     height: 2px;
     background-color: var(--accent);
     justify-self: center;
@@ -77,10 +86,10 @@ body {
 
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(20, minmax(0, 3.5ch));
+    grid-template-columns: repeat(20, minmax(0px, 3.5ch));
     grid-auto-flow: dense;
     gap: calc(var(--spacing) / 2);
-    width: 70ch;
+    width: 100%;
     justify-content: center;
     color: var(--text);
     font-weight: 600;
@@ -102,6 +111,7 @@ body {
             width: 25px;
             user-select: none;
             cursor: pointer;
+            transition: transform 0.35s var(--exp);
         }
 
         & > .background {
@@ -161,12 +171,15 @@ body {
     min-width: 0px;
     height: fit-content;
     /* position: relative; */
-    /* margin-right: auto; */
+    margin-right: var(--spacing);
     /* margin-left: 0; */
     top: 0;
     position: sticky;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+        width 0.35s var(--exp),
+        background-color 0.35s var(--exp);
     overflow: hidden;
+    padding: 0;
 
     & > .inner-body {
         border: none;
@@ -188,6 +201,11 @@ body {
         right: 0;
         float: right;
     }
+}
+
+#description-temp {
+    margin: 0;
+    padding: 0;
 }
 
 .square-grid {
@@ -214,4 +232,18 @@ iframe {
     aspect-ratio: 16/9;
     padding-top: calc(var(--spacing));
     padding-bottom: calc(var(--spacing));
+}
+
+@media (width < 140ch) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #description {
+        background-color: #3F2C3E;
+        position: absolute;
+        z-index: 100;
+        margin-right: 0;
+    }
 }
