@@ -219,7 +219,8 @@ function OpenDescriptionInternal(Id) {
     // Description.removeAttribute("hidden");
 
     Description.setAttribute("style", `
-        width: 70ch;
+        max-width: 70ch;
+        width: min(100vw, 70ch);
         min-height: ${document.body.clientHeight}px;
     `);
 
