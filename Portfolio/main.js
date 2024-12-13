@@ -192,6 +192,7 @@ const IdToGameLink = {
 };
 
 const Description = document.querySelector("#description");
+const BackToTop = document.querySelector("#back-to-top");
 
 let IsDescriptionOpen = false;
 
@@ -257,6 +258,14 @@ function CloseDescription() {
 
     // document.querySelector("#main")?.setAttribute("style", "margin-right: auto;");
 }
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+        BackToTop.setAttribute("style", "opacity: 1; bottom: var(--spacing);");
+    } else {
+        BackToTop.removeAttribute("style");
+    }
+});
 
 window.onload = () => {
     CloseDescription();

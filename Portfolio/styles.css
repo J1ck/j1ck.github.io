@@ -10,6 +10,10 @@
     --exp: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+* {
+    scroll-behavior: smooth;
+}
+
 /* TODO: add responsive layout for mobile using media screen or minmax */
 body {
     font-family: "Lato", sans-serif;
@@ -170,11 +174,11 @@ body {
     width: 0ch;
     min-width: 0px;
     /* height: fit-content; */
-    /* position: relative; */
+    position: relative;
     margin-right: var(--spacing);
     /* margin-left: 0; */
     top: 0;
-    position: sticky;
+    /* position: sticky; */
     transition:
         width 0.35s var(--exp),
         transform 1s var(--exp),
@@ -235,7 +239,31 @@ iframe {
     padding-bottom: calc(var(--spacing));
 }
 
-@media (width < 140ch) {
+#back-to-top {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    z-index: 1000;
+    right: var(--spacing);
+    background-color: white;
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    bottom: calc(var(--spacing) * 2);
+
+    transition: all 1s var(--exp);
+
+    & > img {
+        width: 75%;
+        height: 75%;
+    }
+}
+
+@media screen and (width < 140ch) {
     body {
         flex-direction: column;
         align-items: center;
