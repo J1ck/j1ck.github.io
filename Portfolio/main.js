@@ -221,7 +221,10 @@ function OpenDescriptionInternal(Id) {
     Description.setAttribute("style", `
         max-width: 70ch;
         width: min(calc(100vw - var(--spacing) * 2), 70ch);
-        min-height: ${document.body.clientHeight}px;
+        ${
+            window.getComputedStyle(document.body).flexDirection == "column" ?
+            `min-height: ${document.body.clientHeight}px;` : ""
+        }
     `);
 
     const Body = document.createElement("div");
@@ -246,6 +249,8 @@ function CloseDescription() {
         width: 0;
         padding: 0;
         background-color: rgba(1, 1, 1, 0);
+        transform: rotate(-1deg);
+        max-height: ${document.body.clientHeight}px;
     `);
 
     // document.querySelector("#description-temp")?.remove();

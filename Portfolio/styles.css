@@ -169,7 +169,7 @@ body {
 #description {
     width: 0ch;
     min-width: 0px;
-    height: fit-content;
+    /* height: fit-content; */
     /* position: relative; */
     margin-right: var(--spacing);
     /* margin-left: 0; */
@@ -177,9 +177,10 @@ body {
     position: sticky;
     transition:
         width 0.35s var(--exp),
+        transform 1s var(--exp),
         background-color 0.35s var(--exp);
-    overflow: hidden;
     padding: 0;
+    overflow: hidden;
 
     & > .inner-body {
         border: none;
