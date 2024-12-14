@@ -107,7 +107,7 @@ mark {
         }
 
         & > a:hover {
-            transform: rotate(10deg) scale(120%);
+            transform: rotate(-10deg) scale(120%);
         }
     }
 }
@@ -142,8 +142,12 @@ mark {
         overflow: hidden;
         z-index: 2;
 
-        & > :nth-child(2), & > :nth-child(3) {
+        & > :nth-child(2) {
             color: rgb(138, 125, 119);
+        }
+
+        & > :nth-child(3) {
+            color: rgb(192, 174, 165);
         }
 
         & > .external-link {
@@ -184,6 +188,8 @@ mark {
 }
 
 .language-icons {
+    margin-top: auto;
+
     & > img {
         width: 20px;
         height: 20px;
@@ -216,6 +222,19 @@ mark {
         image-rendering: optimizeSpeed;
         object-fit: cover;
     }
+}
+
+.game-icon {
+    filter: none;
+    opacity: 1;
+    position: absolute;
+    top: 1ch;
+    right: 1ch;
+    border-radius: var(--corner-bevel);
+    width: 10%;
+    user-select: none;
+
+    visibility: hidden;
 }
 
 #main {
@@ -310,7 +329,7 @@ mark {
     }
 }
 
-@media screen and (width < 140ch) {
+@media screen and (width < 190ch) {
     body {
         flex-direction: column;
         align-items: center;
