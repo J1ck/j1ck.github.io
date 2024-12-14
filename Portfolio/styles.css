@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-    --background: #F0F2F1;
-    --text: #3F2C3E;
-    --accent: #F595A4;
-    --corner-bevel: 0px;
+    --background: #ededed;
+    --text: #4B4643;
+    --accent: #74483F;
+    --corner-bevel: 10px;
     --spacing: 2.5ch;
 
     --exp: cubic-bezier(0.16, 1, 0.3, 1);
@@ -14,14 +15,28 @@
     scroll-behavior: smooth;
 }
 
-/* TODO: add responsive layout for mobile using media screen or minmax */
+h1 {
+    font-weight: 600;
+}
+h2 {
+    font-weight: 500;
+    opacity: 0.5;
+}
+h3 {
+    font-weight: 500;
+    opacity: 0.5;
+}
+h5 {
+    font-weight: 500;
+}
+
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
     padding: 0;
     margin: 0;
-    background-color: #3F2C3E;
+    background-color: rgb(28, 25, 23);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -34,31 +49,50 @@ body {
     /* justify-content: center; */
 }
 
+iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    padding-top: calc(var(--spacing));
+    padding-bottom: calc(var(--spacing));
+}
+
+img {
+    filter: brightness(0) invert(78%) sepia(13%) saturate(200%) hue-rotate(334deg) brightness(81%) contrast(90%); /* white */
+    opacity: 0.3;
+}
+
+mark {
+    background: none;
+    color: inherit;
+    /* font-weight: bolder; */
+    font-style: oblique;
+}
+
 .inner-body {
     max-width: 70ch;
     /* min-width: 100px; */
-    /* background-color: #ffffff04; */
+    /* background-color: var(--background); */
     /* margin-left: auto; */
     /* margin-right: auto; */
     padding: var(--spacing);
-    color: var(--background);
-    /* border: solid 2px var(--text); */
+    color: rgb(230, 226, 225);
+    /* border: solid 2px var(--background); */
 
     & > nav {
         display: flex;
         flex-direction: row;
-        color: var(--text);
-        background-color: var(--background);
+        /* color: var(--text); */
+        /* background-color: rgba(25, 25, 32, 0.9); */
         padding-top: calc(var(--spacing) / 2);
         padding-bottom: calc(var(--spacing) / 2);
         width: 100%;
         border-radius: var(--corner-bevel);
         /* justify-self: center; */
-        justify-content: center;
-        gap: 9%;
+        /* justify-content: center; */
+        gap: 4%;
 
         & > a {
-            height: 32px;
+            height: 24px;
             aspect-ratio: 1/1;
             user-select: none;
             cursor: pointer;
@@ -80,11 +114,11 @@ body {
 
 .break {
     width: 100%;
-    height: 2px;
-    background-color: var(--accent);
+    height: 3px;
+    /* background-color: var(--accent); */
     justify-self: center;
-    margin-top: var(--spacing);
-    margin-bottom: var(--spacing);
+    margin-top: calc(var(--spacing) / 2);
+    /* margin-bottom: var(--spacing); */
     /* border-radius: 2px; */
 }
 
@@ -95,11 +129,11 @@ body {
     gap: calc(var(--spacing) / 2);
     width: 100%;
     justify-content: center;
-    color: var(--text);
+    /* color: var(--text); */
     font-weight: 600;
 
     & > div {
-        background-color: var(--background);
+        /* background-color: rgba(25, 25, 32, 0.9); */
         border-radius: var(--corner-bevel);
         padding: calc(var(--spacing) / 2);
         display: flex;
@@ -107,6 +141,10 @@ body {
         position: relative;
         overflow: hidden;
         z-index: 2;
+
+        & > :nth-child(2), & > :nth-child(3) {
+            color: rgb(138, 125, 119);
+        }
 
         & > .external-link {
             position: absolute;
@@ -116,6 +154,7 @@ body {
             user-select: none;
             cursor: pointer;
             transition: transform 0.35s var(--exp);
+            opacity: 1;
         }
 
         & > .background {
@@ -127,6 +166,7 @@ body {
             left: 0;
             transform: translate(calc(var(--spacing) * -2), calc(var(--spacing) * -2));
             z-index: -1;
+            opacity: 1;
         }
     }
 }
@@ -159,6 +199,25 @@ body {
     }
 }
 
+.square-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #00000000;
+    gap: 5px;
+    padding-top: var(--spacing);
+    padding-bottom: var(--spacing);
+
+    & > img {
+        width: 100%;
+        /* width: 30%; */
+        /* width: 1fr; */
+        /* column-span: 1; */
+        aspect-ratio: 1/1;
+        image-rendering: optimizeSpeed;
+        object-fit: cover;
+    }
+}
+
 #main {
     /* margin-left: auto; */
     /* margin-right: auto; */
@@ -186,6 +245,11 @@ body {
     padding: 0;
     overflow: hidden;
 
+    & img {
+        opacity: 1;
+        filter: none;
+    }
+
     & > .inner-body {
         border: none;
     }
@@ -203,40 +267,21 @@ body {
         cursor: pointer;
         position: absolute;
         top: var(--spacing);
-        right: 0;
+        right: var(--spacing);
         float: right;
+        opacity: 1;
+    }
+
+    & > #game-link {
+        background-image: url(icons/game-link.svg);
+        right: calc(var(--spacing) * 2.5);
     }
 }
 
 #description-temp {
     margin: 0;
     padding: 0;
-}
-
-.square-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: #00000000;
-    gap: 5px;
-    padding-top: var(--spacing);
-    padding-bottom: var(--spacing);
-
-    & > img {
-        width: 100%;
-        /* width: 30%; */
-        /* width: 1fr; */
-        /* column-span: 1; */
-        aspect-ratio: 1/1;
-        image-rendering: optimizeSpeed;
-        object-fit: cover;
-    }
-}
-
-iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
-    padding-top: calc(var(--spacing));
-    padding-bottom: calc(var(--spacing));
+    min-width: min(calc(100vw - var(--spacing) * 2), 70ch);
 }
 
 #back-to-top {
@@ -260,6 +305,8 @@ iframe {
     & > img {
         width: 75%;
         height: 75%;
+        opacity: 1;
+        filter: none;
     }
 }
 
@@ -270,7 +317,7 @@ iframe {
         justify-content: center;
     }
     #description {
-        background-color: #3F2C3E;
+        background-color: inherit;
         position: absolute;
         z-index: 100;
         margin-right: 0;

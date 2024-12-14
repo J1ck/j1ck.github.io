@@ -221,6 +221,7 @@ function OpenDescriptionInternal(Id) {
 
     Description.setAttribute("style", `
         max-width: 70ch;
+        padding: var(--spacing);
         width: min(calc(100vw - var(--spacing) * 2), 70ch);
         ${
             window.getComputedStyle(document.body).flexDirection == "column" ?
