@@ -68,6 +68,7 @@ mark {
     color: inherit;
     /* font-weight: bolder; */
     font-style: oblique;
+    color: rgb(230, 226, 225);
 }
 
 .inner-body {
@@ -154,7 +155,7 @@ mark {
 
         & > :nth-child(1) {
             font-size: 140%;
-            font-weight: 800;
+            /* font-weight: 800; */
         }
         & > :nth-child(2) {
             color: rgb(138, 125, 119);

@@ -1,7 +1,7 @@
 const IdToHTML = {
     nsa: `
     <h1>No-Scope Arcade</h1>
-    <h5>Fast-Paced First Person Shooter</h5>
+    <h2 style="color: rgb(192, 174, 165);">Fast-Paced First Person Shooter</h2>
 
     <div class="break"></div>
 
@@ -39,7 +39,7 @@ const IdToHTML = {
     `,
     be: `
     <h1>Blood Engine</h1>
-    <h5>Realistic Sandbox Shooter</h5>
+    <h2 style="color: rgb(192, 174, 165);">Realistic Sandbox Shooter</h2>
 
     <div class="break"></div>
 
@@ -69,7 +69,7 @@ const IdToHTML = {
     `,
     p1v1: `
     <h1>Pistol 1v1</h1>
-    <h5>Competitive 1v1 First Person Shooter</h5>
+    <h2 style="color: rgb(192, 174, 165);">Competitive 1v1 First Person Shooter</h2>
 
     <div class="break"></div>
 
@@ -90,7 +90,7 @@ const IdToHTML = {
     `,
     vesteria: `
     <h1>Vesteria</h1>
-    <h5>Open-World MMO-RPG</h5>
+    <h2 style="color: rgb(192, 174, 165);">Open-World MMO-RPG</h2>
 
     <div class="break"></div>
 
@@ -116,7 +116,7 @@ const IdToHTML = {
     `,
     bd: `
     <h1>Better Dance?</h1>
-    <h5>Round-Based Pick-a-Side Spinoff</h5>
+    <h2 style="color: rgb(192, 174, 165);">Round-Based Pick-a-Side Spinoff</h2>
 
     <div class="break"></div>
 
@@ -150,7 +150,7 @@ const IdToHTML = {
     `,
     dm: `
     <h1>Disaster Masters Alpha</h1>
-    <h5>Round-Based Arcade Minigame</h5>
+    <h2 style="color: rgb(192, 174, 165);">Round-Based Arcade Minigame</h2>
 
     <div class="break"></div>
 
@@ -182,7 +182,7 @@ const IdToHTML = {
     `,
     temp: `
     <h1>Game Title</h1>
-    <h5>Game Blurb</h5>
+    <h2 style="color: rgb(192, 174, 165);">Game Blurb</h2>
 
     <div class="break"></div>
 
