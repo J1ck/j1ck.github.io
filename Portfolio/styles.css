@@ -5,8 +5,10 @@
     --background: #ededed;
     --text: #4B4643;
     --accent: #74483F;
-    --corner-bevel: 10px;
+    --corner-bevel: 5px;
     --spacing: 2.5ch;
+    --off-white-filter: brightness(0) invert(99%) sepia(11%) saturate(472%) hue-rotate(293deg) brightness(99%) contrast(82%); 
+    --pure-white-filter: brightness(0) invert(78%) sepia(13%) saturate(200%) hue-rotate(334deg) brightness(81%) contrast(90%);
 
     --exp: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -57,7 +59,7 @@ iframe {
 }
 
 img {
-    filter: brightness(0) invert(78%) sepia(13%) saturate(200%) hue-rotate(334deg) brightness(81%) contrast(90%); /* white */
+    filter: var(--pure-white-filter);
     opacity: 0.3;
 }
 
@@ -98,16 +100,21 @@ mark {
             cursor: pointer;
             /* margin-right: 2%; */
             /* margin-left: 15%; */
-            transition: transform 0.35s var(--exp);
 
             & > img {
+                transition:
+                    filter 0.35s var(--exp),
+                    opacity 0.35s var(--exp);
                 width: 100%;
                 height: 100%;
             }
         }
 
         & > a:hover {
-            transform: rotate(-10deg) scale(120%);
+            & > img {
+                filter: var(--off-white-filter);
+                opacity: 1;
+            }
         }
     }
 }
@@ -124,7 +131,7 @@ mark {
 
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(20, minmax(0px, 3.5ch));
+    grid-template-columns: repeat(2, 1fr);
     grid-auto-flow: dense;
     gap: calc(var(--spacing) / 2);
     width: 100%;
@@ -141,24 +148,40 @@ mark {
         position: relative;
         overflow: hidden;
         z-index: 2;
+        grid-column: span 1;
+        grid-row: span 1;
+        border: rgb(72, 66, 61) solid 1px;
 
+        & > :nth-child(1) {
+            font-size: 140%;
+            font-weight: 800;
+        }
         & > :nth-child(2) {
             color: rgb(138, 125, 119);
         }
-
         & > :nth-child(3) {
             color: rgb(192, 174, 165);
         }
 
         & > .external-link {
             position: absolute;
-            bottom: calc(var(--spacing) / 4);
-            right: 0;
+            bottom: calc(var(--spacing) / 2);
+            right: calc(var(--spacing) / 2);
             width: 25px;
+            height: 25px;
             user-select: none;
             cursor: pointer;
-            transition: transform 0.35s var(--exp);
+            transition: filter 0.35s var(--exp);
             opacity: 1;
+            content: url(icons/material-symbols_arrow-outward-rounded.svg);
+            filter: var(--off-white-filter);
+        }
+        & > .external-link:hover {
+            filter: var(--pure-white-filter);
+        }
+
+        & > .horizontal-list {
+            padding-top: 1ch;
         }
 
         & > .background {
@@ -189,6 +212,7 @@ mark {
 
 .language-icons {
     margin-top: auto;
+    /* bottom: 0; */
 
     & > img {
         width: 20px;
@@ -273,8 +297,8 @@ mark {
         border: none;
     }
 
-    & > .close-button {
-        background-image: url(icons/close.svg);
+    & > .button {
+        background-image: url(icons/material-symbols_close-rounded.svg);
         background-color: #ffffff00;
         image-rendering: optimizeSpeed;
         background-repeat: no-repeat;
@@ -289,10 +313,18 @@ mark {
         right: var(--spacing);
         float: right;
         opacity: 1;
+        filter: var(--off-white-filter);
+        transition: filter 0.35s var(--exp);
+
+        /* border: rgb(72, 66, 61) solid 1px;
+        border-radius: var(--corner-bevel); */
+    }
+    & > .button:hover {
+        filter: var(--pure-white-filter);
     }
 
     & > #game-link {
-        background-image: url(icons/game-link.svg);
+        background-image: url(icons/material-symbols_videogame-asset.svg);
         right: calc(var(--spacing) * 2.5);
     }
 }
@@ -309,7 +341,7 @@ mark {
     height: 45px;
     z-index: 1000;
     right: var(--spacing);
-    background-color: white;
+    background-color: rgb(230, 226, 225);
     border-radius: 100%;
 
     display: flex;
@@ -326,7 +358,11 @@ mark {
         height: 75%;
         opacity: 1;
         filter: none;
+        content: url(icons/material-symbols_keyboard-double-arrow-up-rounded.svg);
     }
+}
+#back-to-top:hover {
+    background-color: rgb(192, 174, 165);
 }
 
 @media screen and (width < 190ch) {
