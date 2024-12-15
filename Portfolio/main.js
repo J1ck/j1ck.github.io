@@ -156,17 +156,17 @@ const IdToHTML = {
 
     <h3>Developed Key Features:</h3>
     <ul>
-        <li>Designed and Developed a Sophisticated Anti-Cheat System to Stop Hackers from Teleporting, Flying, No-Clipping, Modifying Walk Speed or Jump Height, and Infinite Jumping</li>
-        <li>Created a Framework to Seamlessly Handle Cross Client and Server Interactions for Custom Weapons</li>
-        <li>Researched and Built a Complex Voxel Destruction System Using a Greedy Meshing Algorithm to Maximise Performance and Keep Part Counts Low</li>
-        <li>Implemented Quests, Accessories, Round States, ... think of more</li>
+        <li>Anti-Cheat System to Stop Hackers from Teleporting, Flying, No-Clipping, Modifying Walk Speed or Jump Height, and Infinite Jumping</li>
+        <li>Framework to Seamlessly Handle Cross Client and Server Interactions for Custom Weapons</li>
+        <li>Complex Voxel Destruction System Using a Greedy Meshing Algorithm to Maximise Performance and Keep Part Counts Low</li>
+        <li>Game Mechanics such as Quests, Accessories, Round States, and QOL Improvements</li>
     </ul>
 
     <h3>Behind the Scenes:</h3>
     <ul>
-        <li>Partnered with an investment company to fund the design, development, and marketing of this project</li>
+        <li>Partnered with Roforco to fund the design, development, and marketing of this project</li>
         <li>Harnessed the Micro-Profiler to analyze frame times, then efficiently pinpoint and optimize bottlenecks in the codebase</li>
-        <li>Utilized Kanban boards through Trello to manage and track milestones from the investment company</li>
+        <li>Utilized Kanban boards through Trello to manage and track milestones from Roforco</li>
     </ul>
 
     <div class="break"></div>
@@ -195,42 +195,42 @@ const IdToHTML = {
     `
 };
 
-const IdToGameLink = {
-    bd: "18986150790",
-    vesteria: "2376885433",
-    nsa: "6407649031",
-    be: "13488637865",
-    p1v1: "6722284015",
-    dm: "14963990817"
+const IdToLink = {
+    bd: "https://roblox.com/games/18986150790",
+    vesteria: "https://roblox.com/games/2376885433",
+    nsa: "https://roblox.com/games/6407649031",
+    be: "https://roblox.com/games/13488637865",
+    p1v1: "https://roblox.com/games/6722284015",
+    dm: "https://roblox.com/games/14963990817",
 };
 
 const Description = document.querySelector("#description");
 const BackToTop = document.querySelector("#back-to-top");
 
 let IsDescriptionOpen = false;
+let IsReopeningDescription = false;
+let LastWindowScrollHeight = 0;
 
-function OpenDescription(Id) {
+function OpenDescription(...args) {
     const WasDescriptionOpen = IsDescriptionOpen;
+
+    IsReopeningDescription = true;
 
     CloseDescription();
 
     if (WasDescriptionOpen === false) {
-        OpenDescriptionInternal(Id)
+        OpenDescriptionInternal(...args);
     } else {
-        setTimeout(OpenDescriptionInternal, 150, Id);
+        setTimeout(OpenDescriptionInternal, 150, ...args);
     }
 }
 
 function OpenDescriptionInternal(Id) {
     IsDescriptionOpen = true;
+    LastWindowScrollHeight = window.scrollY;
 
     document.querySelector("#description-temp")?.remove();
-
-    // document.querySelector("#main")?.removeAttribute("style");
-
-    document.querySelector("#game-link").setAttribute("href", `https://roblox.com/games/${IdToGameLink[Id]}`);
-
-    // Description.removeAttribute("hidden");
+    document.querySelector("#game-link").setAttribute("href", IdToLink[Id]);
 
     Description.setAttribute("style", `
         max-width: 70ch;
@@ -251,26 +251,28 @@ function OpenDescriptionInternal(Id) {
 
     window.scrollTo({
         top: 0,
-        // left: 0,
         behaviour: "smooth"
     });
 }
 
 function CloseDescription() {
-    IsDescriptionOpen = false;
-
-    // Description.setAttribute("hidden", true);
     Description.setAttribute("style", `
         width: 0;
         padding: 0;
         background-color: rgba(1, 1, 1, 0);
         transform: rotate(-1deg);
-        max-height: ${document.body.clientHeight}px;
+        max-height: 0px;
     `);
 
-    // document.querySelector("#description-temp")?.remove();
+    if (!IsReopeningDescription) {
+        window.scrollTo({
+            top: LastWindowScrollHeight,
+            behaviour: "smooth"
+        });
+    }
 
-    // document.querySelector("#main")?.setAttribute("style", "margin-right: auto;");
+    IsDescriptionOpen = false;
+    IsReopeningDescription = false;
 }
 
 window.addEventListener("scroll", () => {
@@ -280,7 +282,4 @@ window.addEventListener("scroll", () => {
         BackToTop.removeAttribute("style");
     }
 });
-
-window.onload = () => {
-    CloseDescription();
-};
+window.addEventListener("load", CloseDescription);
