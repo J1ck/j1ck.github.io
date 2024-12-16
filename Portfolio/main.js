@@ -180,6 +180,32 @@ const IdToHTML = {
         <img src="https://tr.rbxcdn.com/180DAY-0dcf396a5963feb93a845a14cd1e57cc/768/432/Image/Webp/noFilter">
     </div>
     `,
+    profilestorewrapper: `
+    <h1>ProfileStore Wrapper</h1>
+    <h2 style="color: rgb(192, 174, 165);">An Efficient and Lightweight DataStore Wrapper with a focus on Server-Client Interactions</h2>
+
+    <div class="break"></div>
+
+    <a>
+    Extremely useful and lightweight wrapper for the popular DataStore module, ProfileStore, made from scratch by yours truly.
+    I've used this wrapper as well as my previous one for ProfileService in countless personal projects and commission jobs.
+    It makes player data management as simple as a drag and drop and has saved countless hours of setting up ProfileStore or something larger just for it's player data management.
+    The custom data serializer is a lua port of cbor with support for roblox-specific datatypes such as Vector3, Udim2, etc.
+    </a>
+
+    <h3>Features</h3>
+    <ul>
+        <li>Automatically replicates data across the Client-Server boundary and has a lightweight API on both ends</li>
+        <li>Has methods to work both synchronously and asynchronously, letting the developer choose how they work with the wrapper</li>
+        <li>Custom data serializer so no data is warped when parsed through the Client-Server boundary</li>
+        <li>Cleanly handles obscure edge cases such as erroring while updating data and players leaving while their data is being modified</li>
+        <li>Minimal network usage, only replicates a diff so unchanging data isn't needlessly replicated</li>
+        <li>Built with simplicity in mind. No crazy abstractions to be found, extremely barebones, no bloat</li>
+        <li>All the benefits of ProfileStore. Built for scalability, easy to learn, future-proof, made for ambitious projects</li>
+    </ul>
+
+    <a></a>
+    `,
     temp: `
     <h1>Game Title</h1>
     <h2 style="color: rgb(192, 174, 165);">Game Blurb</h2>
@@ -202,7 +228,12 @@ const IdToLink = {
     be: "https://roblox.com/games/13488637865",
     p1v1: "https://roblox.com/games/6722284015",
     dm: "https://roblox.com/games/14963990817",
+    profilestorewrapper: "https://github.com/J1ck/ProfileStoreWrapper",
 };
+
+const CustomLinkIcons = {
+    profilestorewrapper: "url(assets/icons/github.svg)"
+}
 
 const Description = document.querySelector("#description");
 const BackToTop = document.querySelector("#back-to-top");
@@ -241,6 +272,12 @@ function OpenDescriptionInternal(Id) {
             `min-height: ${document.body.clientHeight}px;` : ""
         }
     `);
+
+    if (CustomLinkIcons[Id]) {
+        document.querySelector("#game-link").setAttribute("style", `background-image: ${CustomLinkIcons[Id]};`);
+    } else {
+        document.querySelector("#game-link").removeAttribute("style");
+    }
 
     const Body = document.createElement("div");
     Body.setAttribute("class", "inner-body");
