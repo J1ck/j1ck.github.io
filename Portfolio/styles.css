@@ -150,6 +150,7 @@ mark {
             opacity: 1;
             content: url(assets/ui/material-symbols_arrow-outward-rounded.svg);
             filter: var(--off-white-filter);
+            z-index: 2;
         }
         & > .external-link:hover {
             filter: var(--pure-white-filter);
@@ -226,7 +227,9 @@ mark {
     right: 1ch;
     border-radius: var(--corner-bevel);
     width: 10%;
+    min-width: 30px;
     user-select: none;
+    z-index: -1;
 }
 
 #main {
@@ -338,7 +341,7 @@ mark {
         justify-content: center;
     }
     #description {
-        background-color: inherit;
+        background: inherit;
         position: absolute;
         z-index: 100;
         margin-right: 0;
