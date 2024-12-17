@@ -46,6 +46,7 @@ body {
 iframe {
     width: 100%;
     aspect-ratio: 16/9;
+    padding: 0;
     padding-top: calc(var(--spacing));
     padding-bottom: calc(var(--spacing));
 }
@@ -60,6 +61,24 @@ mark {
     color: inherit;
     font-style: oblique;
     color: rgb(230, 226, 225);
+}
+
+p {
+    & > a[href] {
+        text-decoration: none;
+        color: rgb(138, 125, 119);
+        transition: color 0.35s var(--exp);
+    }
+    & > a[href]:hover {
+        color: rgb(192, 174, 165);
+    }
+    & > a[href]::after {
+        content: url(assets/ui/material-symbols_arrow-outward-rounded.svg);
+        display: inline-block;
+        transform: scale(80%) translateY(25%);
+        filter: var(--off-white-filter);
+        opacity: 0.6;
+    }
 }
 
 .inner-body {

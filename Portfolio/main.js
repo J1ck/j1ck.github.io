@@ -206,6 +206,57 @@ const IdToHTML = {
 
     <a></a>
     `,
+    neverwork: `
+    <h1>Neverwork Engine</h1>
+    <h2 style="color: rgb(192, 174, 165);">First Person Shooter Framework</h2>
+
+    <div class="break"></div>
+
+    <p>
+        Originally created in 3 days for <a href="https://www.roblox.com/games/11704518173" target="_blank">this prototype</a>, it turned into a broad framework
+        which was used for <a href="https://www.roblox.com/games/90215491001686" target="_blank">this paintball prototype</a>.
+        It was then rennovated and used for <a href="https://x.com/KingResides/status/1788663459896254772" target="_blank">this untitled project</a> by
+        my good friends Whimsical and TypeDummy. 
+    </p>
+    
+    <h3>Features</h3>
+    <ul>
+        <li>Fully functional loadout system with secondary equipping support</li>
+        <li>Extremely customizable guns, over 30 properties to configure</li>
+        <li>Completely procedural animations, all handcrafted with math</li>
+        <li>Working bullets with head damage multipliers, bullet drag and drop, wall penetration, and damage falloff</li>
+        <li>Advanced & customizable recoil system</li>
+    </ul>
+
+    <h3>Base Framework Showcase</h3>
+    <iframe style="padding-top: 0;" src="https://www.youtube-nocookie.com/embed/XVGYlJcXx4A?si=0hd9-96mqxwy9eOe&amp;controls=0&autoplay=1&mute=1&loop=1&playlist=XVGYlJcXx4A" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    
+    <h3>Paintball Game Prototype Footage</h3>
+    <iframe style="padding-top: 0;" src="https://www.youtube-nocookie.com/embed/mw-8r_r2KRs?si=OXTNsiNyNVnu-lR9&amp;controls=0&autoplay=1&mute=1&loop=1" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media;"></iframe>
+    `,
+    portfolio: `
+    <h1>Portfolio Website</h1>
+    <h2 style="color: rgb(192, 174, 165);">Yes, the one you're on right now!</h2>
+
+    <div class="break"></div>
+
+    <p>
+    Completely designed and programmed from scratch using vanilla HTML, CSS, and JavaScript by yours truly.
+    Although it is just a static site, it gets it's job done as being a portfolio for folks like you to look at!
+    Hopefully you found something interesting or useful, or you're actually considering to hire me.
+    In either case, I thank you from the bottom of my heart for checking out my work and I hope you have a wonderful day or night!
+    </p>
+
+    <p>
+    I'm honestly not sure what else to put here so have some cute cat images!
+    </p>
+
+    <div class="square-grid">
+        <img src="https://cataas.com/cat?type=square">
+        <img src="https://cataas.com/cat">
+        <img src="https://cataas.com/cat?type=small">
+    <div>
+    `,
     temp: `
     <h1>Game Title</h1>
     <h2 style="color: rgb(192, 174, 165);">Game Blurb</h2>
@@ -229,10 +280,13 @@ const IdToLink = {
     p1v1: "https://roblox.com/games/6722284015",
     dm: "https://roblox.com/games/14963990817",
     profilestorewrapper: "https://github.com/J1ck/ProfileStoreWrapper",
+    neverwork: "https://www.roblox.com/games/90215491001686",
+    portfolio: "https://github.com/J1ck/j1ck.github.io/tree/main/Portfolio"
 };
 
 const CustomLinkIcons = {
-    profilestorewrapper: "url(assets/icons/github.svg)"
+    profilestorewrapper: "url(assets/icons/github.svg)",
+    portfolio: "url(assets/icons/github.svg)",
 }
 
 const Description = document.querySelector("#description");
