@@ -36,8 +36,8 @@ body {
     font-style: normal;
     padding: 0;
     margin: 0;
-    background: rgb(28, 25, 23);
-    background: linear-gradient(-35deg, rgb(28, 25, 23) 0%, rgb(48, 42, 40) 100%);
+    background-color: rgb(28, 25, 23);
+    background-image: linear-gradient(-35deg, rgb(28, 25, 23) 0%, rgb(48, 42, 40) 100%);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -273,6 +273,7 @@ p {
     & img {
         opacity: 1;
         filter: none;
+        max-width: 100%;
     }
 
     & > .inner-body {

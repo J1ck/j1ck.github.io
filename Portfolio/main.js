@@ -257,6 +257,23 @@ const IdToHTML = {
         <img src="https://cataas.com/cat?type=small">
     <div>
     `,
+    particleplugin: `
+    <h1>Particle Emitter Plugin</h1>
+    <h2 style="color: rgb(192, 174, 165);">Roblox Studio Plugin for Emitting Particles</h2>
+
+    <div class="break"></div>
+
+    <h3>Features</h3>
+    <ul>
+        <li>Fine control over the amount of particles emitted and how delayed the emission is</li>
+        <li>Select what particles are emitted: Individual, Children, Descendants</li>
+        <li>Allows for seamless collaboration with VFX designers</li>
+        <li>Can easily be integrated into your codebase through attributes</li>
+    </ul>
+
+    <h3>Screenshots</h3>
+    <img src="https://private-user-images.githubusercontent.com/88492622/246736494-ece619b9-2f9a-4bf8-8a7e-6db6edcffabf.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ1MDkwMTIsIm5iZiI6MTczNDUwODcxMiwicGF0aCI6Ii84ODQ5MjYyMi8yNDY3MzY0OTQtZWNlNjE5YjktMmY5YS00YmY4LThhN2UtNmRiNmVkY2ZmYWJmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjE4VDA3NTgzMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWE2MTI2ZWNkN2Q1ZGEzMThkOTAwMGU3ZDc1YjQxNmM0OGZmMzZmMWRkYmQxNjRmNzVkYzU1NTE2OGRkZDEyZGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.dtW33VRnzUs7_9Csqs418CS42Wjrpyymu8QjW3ZGD1w">
+    `,
     temp: `
     <h1>Game Title</h1>
     <h2 style="color: rgb(192, 174, 165);">Game Blurb</h2>
@@ -281,12 +298,14 @@ const IdToLink = {
     dm: "https://roblox.com/games/14963990817",
     profilestorewrapper: "https://github.com/J1ck/ProfileStoreWrapper",
     neverwork: "https://www.roblox.com/games/90215491001686",
-    portfolio: "https://github.com/J1ck/j1ck.github.io/tree/main/Portfolio"
+    portfolio: "https://github.com/J1ck/j1ck.github.io/tree/main/Portfolio",
+    particleplugin: "https://github.com/J1ck/roblox-particle-util"
 };
 
 const CustomLinkIcons = {
     profilestorewrapper: "url(assets/icons/github.svg)",
     portfolio: "url(assets/icons/github.svg)",
+    particleplugin: "url(assets/icons/github.svg)"
 }
 
 const Description = document.querySelector("#description");
