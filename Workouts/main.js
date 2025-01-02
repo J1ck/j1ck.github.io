@@ -4,6 +4,8 @@ const SearchButton = document.querySelector("#search");
 const TodaysWODButton = document.querySelector("#today");
 const SearchInput = document.querySelector("input[type='search']");
 
+let WorkoutCache = {};
+
 function ValidateResponse(Response) {
     if (Response.ok) {
         return Response.text();
@@ -61,26 +63,22 @@ function Render(CustomSearchText) {
         Div.remove();
     }
 
-    let MonthsToFilter = IndexToMonth.length;
-    let MonthsFiltered = 0;
+    for (let Month of IndexToMonth) {
+        FilterWorkouts(WorkoutCache[Month], CustomSearchText);
+    }
 
-    for (Month of IndexToMonth) {
-        fetch(`months/${Month}.html`)
-            .then(ValidateResponse)
-            .then(Text => {
-                FilterWorkouts(Text, CustomSearchText);
-            })
-            .then(() => {
-                MonthsFiltered++
+    const EndTime = Date.now() / 1000;
+    const TotalTime = EndTime - StartTime;
+    const ToMilliseconds = Math.round(TotalTime * 1000);
 
-                if (MonthsFiltered == MonthsToFilter) {
-                    const EndTime = Date.now() / 1000;
-                    const TotalTime = EndTime - StartTime;
-                    const ToMilliseconds = Math.round(TotalTime * 1000);
+    document.querySelector("#search-time").textContent = `rendered in ${ToMilliseconds}ms`;
 
-                    document.querySelector("#search-time").textContent = `rendered in ${ToMilliseconds}ms`;
-                }
-            });
+    if (document.querySelectorAll(`#results`).length == 0) {
+        const Message = document.createElement("p");
+        Message.innerText = `no results found`;
+        Message.setAttribute("id", "results");
+
+        document.body.appendChild(Message);
     }
 }
 
@@ -96,10 +94,32 @@ function SearchTodaysWOD() {
     Render(ToSearchable);
 }
 
-SearchButton.addEventListener("click", () => {
-    Render();
-});
+function Intialize() {
+    SearchButton.addEventListener("click", () => {
+        Render();
+    });
 
-TodaysWODButton.addEventListener("click", SearchTodaysWOD);
+    SearchInput.addEventListener("search", () => {
+        Render();
+    })
+    
+    TodaysWODButton.addEventListener("click", SearchTodaysWOD);
 
-window.addEventListener("load", SearchTodaysWOD);
+    SearchTodaysWOD();
+}
+
+let FilesLoaded = 0;
+
+for (let Month of IndexToMonth) {
+    fetch(`months/${Month}.html`)
+        .then(ValidateResponse)
+        .then(Text => {
+            WorkoutCache[Month] = Text;
+
+            FilesLoaded++;
+
+            if (FilesLoaded == IndexToMonth.length) {
+                Intialize();
+            }
+        })
+}
