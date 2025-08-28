@@ -1,4 +1,80 @@
 const IdToHTML = {
+    "basketball-zero": `
+    <h1>Basketball: Zero</h1>
+    <h2 style="color: rgb(192, 174, 165);">Anime Sports Action</h2>
+
+    <div class="break"></div>
+
+    <h3>Developed and Shipped Key Features:</h3>
+    <ul>
+        <li>Quests</li>
+        <li>Daily Rewards</li>
+        <li>Live Updating Codes</li>
+        <li>Global Announcements</li>
+        <li>Limited Time Bundles and Events</li>
+        <li>Limited Time Rarities and Inventory</li>
+        <li>Entire Marketplace Backend With Gifting</li>
+        <li>Live Updating Limited Time Shop</li>
+        <li>Global Leaderboards</li>
+        <li>Emotes</li>
+        <li>Locker System</li>
+        <li>In-Game Settings</li>
+        <li>Customizable Keybinds</li>
+        <li>Style and Zone Abilities</li>
+        <li>Cutscenes</li>
+        <li>AFK Chamber</li>
+        <li>And Much More...</li>
+    </ul>
+
+    <h3>Behind the Scenes:</h3>
+    <ul>
+        <li>Created a large portion of the game's backend before release. Anything non-essential to gameplay was programmed by me</li>
+        <li>Fixed a multitude of bugs ranging in severity, making sure the experience runs seamlessly and without issue</li>
+        <li>Optimized slow features to accomodate lower-end devices</li> 
+    </ul>
+
+    <div class="break"></div>
+
+    <h3>Game Description</h3>
+
+    <a>THIS IS A COOL BASKETBALL GAME, ITS 5V5 BASKETBALL, FAST PACED AND EASY TO PLAY!<br>Choose a character class with unique ORIGINAL abilities and dominate the court with your AURA!</a> 
+    <div class="square-grid">
+        <img src="https://tr.rbxcdn.com/180DAY-429ba9076f0410d76304f604dd5ec098/768/432/Image/Webp/noFilter">
+        <img src="https://tr.rbxcdn.com/180DAY-434a04bae62d21738bb742a95394d661/768/432/Image/Webp/noFilter">
+        <img src="https://tr.rbxcdn.com/180DAY-5876a996051b388386cdc6227cda09a6/768/432/Image/Webp/noFilter">
+        <img src="https://tr.rbxcdn.com/180DAY-e347213a9146e8b78866f08bcfc41f73/768/432/Image/Webp/noFilter">
+    </div>
+    `,
+    be: `
+    <h1>Blood Engine</h1>
+    <h2 style="color: rgb(192, 174, 165);">Realistic Sandbox Shooter</h2>
+
+    <div class="break"></div>
+
+    <h3>Developed Key Features:</h3>
+    <ul>
+        <li>Loadout System Rework and Saving</li>
+        <li>Completely New Sandbox Map with New Interactive Machines</li>
+        <li>Picking Up and Throwing Ragdolls & Objects</li>
+        <li>Follow the Developers Rewards</li>
+        <li>Action Keybind Hints Rework</li>
+    </ul>
+
+    <h3>Behind the Scenes:</h3>
+    <ul>
+        <li>Fixed <i>a lot</i> of bugs, making the experience a lot more stable</li>
+        <li>Slightly improved performance by refactoring some inefficient code and removing some performance-heavy visuals</li>
+    </ul>
+
+    <div class="break"></div>
+
+    <h3>Game Description</h3>
+
+    <a>Known for having some of the most advanced blood/gore and ragdoll physics on Roblox, take a dive into the immersive experience of Blood Engine and battle others in multiplayer, or execute testing subjects in sandbox mode in the most brutal ways possible.</a>
+    <div class="square-grid">
+        <img src="https://tr.rbxcdn.com/180DAY-876a9bd4513623e15e5e0e84e9134417/768/432/Image/Webp/noFilter">
+    </div>
+    `,
     nsa: `
     <h1>No-Scope Arcade</h1>
     <h2 style="color: rgb(192, 174, 165);">Fast-Paced First Person Shooter</h2>
@@ -290,6 +366,7 @@ const IdToHTML = {
 };
 
 const IdToLink = {
+    "basketball-zero": "https://www.roblox.com/games/130739873848552",
     bd: "https://roblox.com/games/18986150790",
     vesteria: "https://roblox.com/games/2376885433",
     nsa: "https://roblox.com/games/6407649031",
