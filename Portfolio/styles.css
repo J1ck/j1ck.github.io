@@ -36,8 +36,8 @@ body {
     font-style: normal;
     padding: 0;
     margin: 0;
-    background-color: rgb(28, 25, 23);
-    background-image: linear-gradient(-35deg, rgb(28, 25, 23) 0%, rgb(48, 42, 40) 100%);
+    background-color: rgb(24, 23, 28);
+    background-image: linear-gradient(-35deg, rgb(25, 23, 28) 0%, rgb(42, 40, 48) 100%);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -60,17 +60,17 @@ mark {
     background: none;
     color: inherit;
     font-style: oblique;
-    color: rgb(230, 226, 225);
+    color: rgb(226, 225, 230);
 }
 
 p {
     & > a[href] {
         text-decoration: none;
-        color: rgb(138, 125, 119);
+        color: rgb(125, 119, 138);
         transition: color 0.35s var(--exp);
     }
     & > a[href]:hover {
-        color: rgb(192, 174, 165);
+        color: rgb(172, 165, 192);
     }
     & > a[href]::after {
         content: url(assets/ui/material-symbols_arrow-outward-rounded.svg);
@@ -84,7 +84,7 @@ p {
 .inner-body {
     max-width: 70ch;
     padding: var(--spacing);
-    color: rgb(230, 226, 225);
+    color: rgb(226, 225, 230);
 
     & > nav {
         display: flex;
@@ -145,16 +145,16 @@ p {
         z-index: 2;
         grid-column: span 1;
         grid-row: span 1;
-        border: rgb(72, 66, 61) solid 1px;
+        border: rgb(63, 61, 72) solid 1px;
 
         & > :nth-child(1) {
             font-size: 140%;
         }
         & > :nth-child(2) {
-            color: rgb(138, 125, 119);
+            color: rgb(125, 119, 138);
         }
         & > :nth-child(3) {
-            color: rgb(192, 174, 165);
+            color: rgb(173, 165, 192);
         }
 
         & > .external-link {
@@ -321,7 +321,7 @@ p {
     height: 45px;
     z-index: 1000;
     right: var(--spacing);
-    background-color: rgb(230, 226, 225);
+    background-color: rgb(226, 225, 230);
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -339,7 +339,7 @@ p {
     }
 }
 #back-to-top:hover {
-    background-color: rgb(192, 174, 165);
+    background-color: rgb(170, 165, 192);
 }
 
 #gradient {

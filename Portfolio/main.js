@@ -392,18 +392,20 @@ let IsDescriptionOpen = false;
 let IsReopeningDescription = false;
 let LastWindowScrollHeight = 0;
 
-function OpenDescription(...args) {
-    const WasDescriptionOpen = IsDescriptionOpen;
+function OpenDescription(Id) {
+    open(IdToLink[Id], "_blank")
 
-    IsReopeningDescription = true;
+    // const WasDescriptionOpen = IsDescriptionOpen;
 
-    CloseDescription();
+    // IsReopeningDescription = true;
 
-    if (WasDescriptionOpen === false) {
-        OpenDescriptionInternal(...args);
-    } else {
-        setTimeout(OpenDescriptionInternal, 150, ...args);
-    }
+    // CloseDescription();
+
+    // if (WasDescriptionOpen === false) {
+    //     OpenDescriptionInternal(...args);
+    // } else {
+    //     setTimeout(OpenDescriptionInternal, 150, ...args);
+    // }
 }
 
 function OpenDescriptionInternal(Id) {
@@ -470,3 +472,44 @@ window.addEventListener("scroll", () => {
     }
 });
 window.addEventListener("load", CloseDescription);
+
+// new Intl.NumberFormat("en-GB", {
+//   notation: "compact",
+//   compactDisplay: "short",
+//   roundingMode: "floor",
+// }).format(987654321);
+
+//  "basketball-zero": "https://www.roblox.com/games/130739873848552",
+//     bd: "https://roblox.com/games/18986150790",
+//     vesteria: "https://roblox.com/games/2376885433",
+//     nsa: "https://roblox.com/games/6407649031",
+//     be: "https://roblox.com/games/13488637865",
+//     p1v1: "https://roblox.com/games/6722284015",
+//     dm: "https://roblox.com/games/14963990817",
+
+let GameNameToId = {
+    ["Basketball: Zero"]: 130739873848552,
+    ["No-Scope Arcade"]: 18986150790,
+    ["Blood Engine"]: 13488637865,
+    ["Pistol 1v1"]: 6722284015,
+    ["Vesteria"]: 2376885433,
+};
+
+for (let div of document.querySelector("#games").children) {
+    let visits = div.children[2]
+    let gameName = div.children[0].textContent
+
+    fetch(`https://games.roblox.com/v1/games?universeIds=${GameNameToId[gameName]}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+
+            console.log(response);
+        })
+        .catch(() => {
+
+        });
+
+    console.log(visits, gameName);
+}
