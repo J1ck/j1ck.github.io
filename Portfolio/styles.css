@@ -150,6 +150,7 @@ p {
 
         & > :nth-child(1) {
             font-size: 140%;
+            pointer-events: none;
             /* text-align: center; */
         }
         & > :nth-child(2) {
@@ -165,7 +166,7 @@ p {
 
         & > .external-link {
             position: absolute;
-            top: calc(var(--spacing) / 2);
+            bottom: calc(var(--spacing) / 2);
             right: calc(var(--spacing) / 2);
             width: 25px;
             height: 25px;
@@ -251,10 +252,18 @@ p {
     top: 1ch;
     right: 1ch;
     border-radius: var(--corner-bevel);
-    width: 10%;
-    min-width: 30px;
+    /* width: 15%; */
+    min-width: 40px;
+    height: 1.4ch;
+    min-height: 40px;
     user-select: none;
     z-index: -1;
+    transition: height 0.1s;
+}
+.game-icon:hover {
+    height: 66%;
+    z-index: 2;
+    /* cursor: pointer; */
 }
 
 #main {

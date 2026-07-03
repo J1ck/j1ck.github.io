@@ -367,6 +367,7 @@ const IdToHTML = {
 
 const IdToLink = {
     "basketball-zero": "https://www.roblox.com/games/130739873848552",
+    "soccer-zero": "https://www.roblox.com/games/75462869229229",
     bd: "https://roblox.com/games/18986150790",
     vesteria: "https://roblox.com/games/2376885433",
     nsa: "https://roblox.com/games/6407649031",
