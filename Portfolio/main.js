@@ -393,7 +393,7 @@ let IsReopeningDescription = false;
 let LastWindowScrollHeight = 0;
 
 function OpenDescription(Id) {
-    open(IdToLink[Id], "_blank")
+    window.open(IdToLink[Id], "_blank");
 
     // const WasDescriptionOpen = IsDescriptionOpen;
 
@@ -487,29 +487,67 @@ window.addEventListener("load", CloseDescription);
 //     p1v1: "https://roblox.com/games/6722284015",
 //     dm: "https://roblox.com/games/14963990817",
 
-let GameNameToId = {
-    ["Basketball: Zero"]: 130739873848552,
-    ["No-Scope Arcade"]: 18986150790,
-    ["Blood Engine"]: 13488637865,
-    ["Pistol 1v1"]: 6722284015,
-    ["Vesteria"]: 2376885433,
+// let GameNameToId = {
+//     ["Basketball: Zero"]: 130739873848552,
+//     ["No-Scope Arcade"]: 18986150790,
+//     ["Blood Engine"]: 13488637865,
+//     ["Pistol 1v1"]: 6722284015,
+//     ["Vesteria"]: 2376885433,
+// };
+
+let GameNameToVisits = {
+    ["Basketball: Zero"]: 1_000_000_000,
+    ["Soccer: Zero"]: 25_000_000,
+    ["No-Scope Arcade"]: 200_000_000,
+    ["Blood Engine"]: 30_000_000,
+    ["Pistol 1v1"]: 30_000_000,
+    ["Vesteria"]: 95_000_000,
 };
+let GameNameToPeakCCU = {
+    ["Basketball: Zero"]: 255_000,
+    ["Soccer: Zero"]:   45_000,  
+    ["No-Scope Arcade"]: 4_500,
+    ["Blood Engine"]: 3_500,
+    ["Pistol 1v1"]: 400,
+    ["Vesteria"]: 6_500,
+}
+
+let totalVisits = 0;
+let totalCCU = 0;
 
 for (let div of document.querySelector("#games").children) {
-    let visits = div.children[2]
-    let gameName = div.children[0].textContent
+    let visits = div.children[2];
+    let ccu = div.children[3];
+    let gameName = div.children[0].textContent;
 
-    fetch(`https://games.roblox.com/v1/games?universeIds=${GameNameToId[gameName]}`)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(response.status);
-            }
+    let formattedVisits = new Intl.NumberFormat("en-GB", {
+        notation: "standard",
+        compactDisplay: "long",
+        roundingMode: "floor"
+    }).format(GameNameToVisits[gameName])
+    let formattedCCU = new Intl.NumberFormat("en-GB", {
+        notation: "standard",
+        compactDisplay: "short",
+        roundingMode: "floor"
+    }).format(GameNameToPeakCCU[gameName])
 
-            console.log(response);
-        })
-        .catch(() => {
+    visits.textContent = `${formattedVisits.toUpperCase()}+ visits`;
+    ccu.textContent = `${formattedCCU}+ peak ccu`;
 
-        });
-
-    console.log(visits, gameName);
+    totalVisits += GameNameToVisits[gameName];
+    totalCCU += GameNameToPeakCCU[gameName];
 }
+
+document.querySelector("#totalStats").innerHTML = `A Combined Total of <mark>${
+    new Intl.NumberFormat("en-GB", {
+        notation: "compact",
+        compactDisplay: "long",
+        roundingMode: "floor"
+    }).format(totalVisits)
+} Visits</mark> and <mark>${
+    new Intl.NumberFormat("en-GB", {
+        notation: "compact",
+        compactDisplay: "short",
+        roundingMode: "floor"
+    }).format(totalCCU)
+} Peak Concurrent Users</mark>`;
