@@ -150,6 +150,7 @@ p {
 
         & > :nth-child(1) {
             font-size: 140%;
+            width: calc(100% - 2.4ch);
             pointer-events: none;
             /* text-align: center; */
         }
